@@ -280,3 +280,122 @@ footer {
     }
 
 }
+
+/* =====================================================
+   PÁGINA DE CADASTRO
+   ===================================================== */
+
+.formulario {
+    max-width: 760px;
+    margin: 45px auto 0;
+    background: #ffffff;
+    padding: 45px;
+    border-radius: 14px;
+    border: 1px solid #e5dfd5;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+    text-align: left;
+}
+
+.form-titulo {
+    font-size: 22px !important;
+    color: #24201c;
+    margin: 35px 0 22px !important;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #c9a96e;
+}
+
+.form-titulo:first-child {
+    margin-top: 0 !important;
+}
+
+.campo {
+    margin-bottom: 22px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #302b26;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d8d0c5;
+    border-radius: 7px;
+    background: #faf9f7;
+    color: #24201c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.campo input,
+.campo select {
+    height: 50px;
+}
+
+.campo textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: #9b938a;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    border-color: #c9a96e;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.15);
+}
+
+.formulario .btn-main {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 17px 25px;
+    margin-top: 15px;
+}
+
+
+/* TÍTULO DA PÁGINA */
+
+.about h1 {
+    font-size: clamp(36px, 5vw, 52px);
+    line-height: 1.1;
+    margin: 15px 0 20px;
+}
+
+.about h1 strong {
+    color: #8d6d3e;
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 600px) {
+
+    .formulario {
+        padding: 28px 20px;
+        margin-top: 30px;
+    }
+
+    .form-titulo {
+        font-size: 20px !important;
+    }
+
+    .about h1 {
+        font-size: 34px;
+    }
+
+}
