@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro | Evangeliza Chorozinho</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="header">
+
+        <div class="container header-content">
+
+            <div class="logo">
+                EVANGELIZA<br>
+                <span>CHOROZINHO</span>
+            </div>
+
+            <a href="index.html" class="btn btn-header">
+                INÍCIO
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTEÚDO -->
+    <main>
+
+        <section class="about">
+
+            <div class="container">
+
+                <span class="section-label">
+                    FAÇA PARTE
+                </span>
+
+                <h1>
+                    Cadastro de <strong>Participante</strong>
+                </h1>
+
+                <p>
+                    Preencha seus dados para fazer parte
+                    do Evangeliza Chorozinho.
+                </p>
+
+
+                <!-- FORMULÁRIO -->
+
+                <form id="formCadastro" class="formulario">
+
+
+                    <!-- DADOS PESSOAIS -->
+
+                    <h2 class="form-titulo">
+                        Dados pessoais
+                    </h2>
+
+
+                    <div class="campo">
+
+                        <label for="nome">
+                            Nome completo
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nome"
+                            name="nome"
+                            placeholder="Digite seu nome completo"
+                            required>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="whatsapp">
+                            WhatsApp
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="whatsapp"
+                            name="whatsapp"
+                            placeholder="(85) 99999-9999"
+                            required>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="cidade">
+                            Cidade
+                        </label>
+
+                        <input
+                            type="text"
+                            id="cidade"
+                            name="cidade"
+                            placeholder="Digite sua cidade"
+                            required>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="bairro">
+                            Bairro
+                        </label>
+
+                        <input
+                            type="text"
+                            id="bairro"
+                            name="bairro"
+                            placeholder="Digite seu bairro"
+                            required>
+
+                    </div>
+
+
+                    <!-- DADOS DA IGREJA -->
+
+                    <h2 class="form-titulo">
+                        Dados da igreja
+                    </h2>
+
+
+                    <div class="campo">
+
+                        <label for="denominacao">
+                            Denominação
+                        </label>
+
+                        <input
+                            type="text"
+                            id="denominacao"
+                            name="denominacao"
+                            placeholder="Ex.: Assembleia de Deus"
+                            required>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="igreja">
+                            Nome da igreja
+                        </label>
+
+                        <input
+                            type="text"
+                            id="igreja"
+                            name="igreja"
+                            placeholder="Digite o nome da sua igreja"
+                            required>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="lider">
+                            Pastor ou líder responsável
+                        </label>
+
+                        <input
+                            type="text"
+                            id="lider"
+                            name="lider"
+                            placeholder="Nome do pastor ou líder"
+                            required>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="cargo">
+                            Cargo que ocupa na igreja
+                        </label>
+
+                        <select
+                            id="cargo"
+                            name="cargo"
+                            required>
+
+                            <option value="">
+                                Selecione seu cargo
+                            </option>
+
+                            <option value="Membro(a)">
+                                Membro(a)
+                            </option>
+
+                            <option value="Cooperador(a)">
+                                Cooperador(a)
+                            </option>
+
+                            <option value="Obreiro(a)">
+                                Obreiro(a)
+                            </option>
+
+                            <option value="Diácono/Diaconisa">
+                                Diácono/Diaconisa
+                            </option>
+
+                            <option value="Presbítero(a)">
+                                Presbítero(a)
+                            </option>
+
+                            <option value="Evangelista">
+                                Evangelista
+                            </option>
+
+                            <option value="Pastor(a)">
+                                Pastor(a)
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- ÁREA DE SERVIÇO -->
+
+                    <h2 class="form-titulo">
+                        Área em que deseja servir
+                    </h2>
+
+
+                    <div class="campo">
+
+                        <label for="area">
+                            Escolha uma área
+                        </label>
+
+                        <select
+                            id="area"
+                            name="area"
+                            required>
+
+                            <option value="">
+                                Selecione uma área
+                            </option>
+
+                            <option value="Evangelismo">
+                                Evangelismo
+                            </option>
+
+                            <option value="Intercessão">
+                                Intercessão
+                            </option>
+
+                            <option value="Louvor">
+                                Louvor
+                            </option>
+
+                            <option value="Mídia">
+                                Mídia
+                            </option>
+
+                            <option value="Apoio geral">
+                                Apoio geral
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- OBSERVAÇÃO -->
+
+                    <h2 class="form-titulo">
+                        Observação
+                    </h2>
+
+
+                    <div class="campo">
+
+                        <label for="observacao">
+                            Alguma informação adicional?
+                        </label>
+
+                        <textarea
+                            id="observacao"
+                            name="observacao"
+                            rows="5"
+                            placeholder="Escreva aqui, se desejar."></textarea>
+
+                    </div>
+
+
+                    <!-- BOTÃO -->
+
+                    <button
+                        type="submit"
+                        class="btn btn-main">
+
+                        FINALIZAR CADASTRO
+
+                    </button>
+
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-logo">
+                EVANGELIZA CHOROZINHO
+            </div>
+
+            <p>
+                Um movimento de fé, unidade e evangelização.
+            </p>
+
+            <p class="copyright">
+                © 2026 Evangeliza Chorozinho
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- SCRIPT -->
+
+    <script>
+
+        document
+            .getElementById("formCadastro")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                window.location.href = "sucesso.html";
+
+            });
+
+    </script>
+
+</body>
+
+</html>
