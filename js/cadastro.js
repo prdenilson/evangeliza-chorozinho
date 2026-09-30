@@ -4,9 +4,18 @@ const URL_GOOGLE_SHEETS =
 
 document
     .getElementById("formCadastro")
-    .addEventListener("submit", function (event) {
+    .addEventListener("submit", async function (event) {
 
         event.preventDefault();
+
+        const botao =
+            document.querySelector(
+                "#formCadastro button[type='submit']"
+            );
+
+        botao.disabled = true;
+        botao.textContent = "ENVIANDO CADASTRO...";
+
 
         const participante = {
 
@@ -57,76 +66,85 @@ document
                 .getElementById("observacao")
                 .value
                 .trim()
-
         };
 
 
-        const botao =
-            document.querySelector(
-                "#formCadastro button[type='submit']"
+        try {
+
+            const resposta = await fetch(
+                URL_GOOGLE_SHEETS,
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "text/plain;charset=utf-8"
+                    },
+
+                    body: JSON.stringify(participante)
+                }
             );
 
 
-        botao.disabled = true;
-
-        botao.textContent =
-            "ENVIANDO CADASTRO...";
-
-
-        /*
-         * Envia os dados para o Google Apps Script.
-         * Usamos no-cors para evitar o bloqueio do navegador.
-         */
-
-        fetch(
-            URL_GOOGLE_SHEETS,
-            {
-                method: "POST",
-
-                mode: "no-cors",
-
-                headers: {
-                    "Content-Type":
-                        "text/plain;charset=utf-8"
-                },
-
-                body:
-                    JSON.stringify(participante)
+            if (!resposta.ok) {
+                throw new Error(
+                    "O servidor não respondeu corretamente."
+                );
             }
-        )
-        .then(function () {
 
-            /*
-             * O navegador não consegue ler a resposta
-             * quando usamos no-cors.
-             *
-             * Mas o Google Apps Script recebe o cadastro.
-             */
 
-            localStorage.setItem(
-                "participante",
-                JSON.stringify(participante)
+            const resultado =
+                await resposta.text();
+
+
+            console.log(
+                "Resposta do Google:",
+                resultado
             );
 
 
-            window.location.href =
-                "sucesso.html";
+            if (
+                resultado.includes("OK:")
+            ) {
 
-        })
-        .catch(function (erro) {
+                localStorage.setItem(
+                    "participante",
+                    JSON.stringify(participante)
+                );
 
-            console.error(erro);
+
+                window.location.href =
+                    "sucesso.html";
+
+            } else {
+
+                throw new Error(
+                    resultado ||
+                    "O cadastro não foi confirmado."
+                );
+
+            }
+
+
+        } catch (erro) {
+
+            console.error(
+                "Erro no cadastro:",
+                erro
+            );
+
 
             alert(
-                "Não foi possível concluir o cadastro. " +
-                "Verifique sua conexão e tente novamente."
+                "Não foi possível concluir o cadastro.\n\n" +
+                "O sistema não confirmou a gravação dos seus dados. " +
+                "Tente novamente."
             );
+
 
             botao.disabled = false;
 
             botao.textContent =
                 "FINALIZAR CADASTRO";
-
-        });
+        }
 
     });
