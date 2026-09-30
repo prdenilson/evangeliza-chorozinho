@@ -1,6 +1,10 @@
+const URL_GOOGLE_SHEETS =
+    "https://script.google.com/macros/s/AKfycbxaMBegcyJw7cyiyctCcU9T_zRK1gFpeq2yWSQ4NUQkmllkkwVQr4zrxEZaSibc1lUa/exec";
+
+
 document
     .getElementById("formCadastro")
-    .addEventListener("submit", function (event) {
+    .addEventListener("submit", async function (event) {
 
         event.preventDefault();
 
@@ -57,42 +61,99 @@ document
         };
 
 
-        /*
-         * NÚMERO TEMPORÁRIO DE INSCRIÇÃO
-         */
-
-        participante.numero =
-            "EC-" +
-            Date.now()
-                .toString()
-                .slice(-6);
+        const botao =
+            document.querySelector(
+                "#formCadastro button[type='submit']"
+            );
 
 
-        /*
-         * DATA DO CADASTRO
-         */
+        botao.disabled = true;
 
-        participante.dataCadastro =
-            new Date().toLocaleString("pt-BR");
+        botao.textContent =
+            "ENVIANDO CADASTRO...";
 
 
-        /*
-         * ARMAZENAMENTO TEMPORÁRIO
-         *
-         * Depois vamos substituir esta parte
-         * pelo envio para o Google Sheets.
-         */
+        try {
 
-        localStorage.setItem(
-            "participante",
-            JSON.stringify(participante)
-        );
+            const resposta =
+                await fetch(
+                    URL_GOOGLE_SHEETS,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "text/plain;charset=utf-8"
+                        },
+
+                        body:
+                            JSON.stringify(participante)
+                    }
+                );
 
 
-        /*
-         * REDIRECIONA PARA A CONFIRMAÇÃO
-         */
+            const resultado =
+                await resposta.json();
 
-        window.location.href = "sucesso.html";
+
+            if (!resultado.sucesso) {
+
+                throw new Error(
+                    resultado.erro ||
+                    "Não foi possível realizar o cadastro."
+                );
+
+            }
+
+
+            /*
+             * Guarda o número recebido
+             * pelo Google Sheets.
+             */
+
+            localStorage.setItem(
+                "numeroInscricao",
+                resultado.numero
+            );
+
+
+            /*
+             * Guarda também os dados
+             * do participante.
+             */
+
+            localStorage.setItem(
+                "participante",
+                JSON.stringify({
+                    ...participante,
+                    numero: resultado.numero
+                })
+            );
+
+
+            /*
+             * Vai para a confirmação.
+             */
+
+            window.location.href =
+                "sucesso.html";
+
+
+        } catch (erro) {
+
+            console.error(erro);
+
+            alert(
+                "Não foi possível concluir o cadastro. " +
+                "Verifique sua conexão e tente novamente."
+            );
+
+
+            botao.disabled = false;
+
+            botao.textContent =
+                "FINALIZAR CADASTRO";
+
+        }
 
     });
