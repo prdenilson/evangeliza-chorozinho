@@ -2,28 +2,40 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>Cadastro | Evangeliza Chorozinho</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
 </head>
+
 
 <body>
 
     <!-- CABEÇALHO -->
-    <header class="header">
 
-        <div class="container header-content">
+    <header>
+
+        <div class="container">
 
             <div class="logo">
-                EVANGELIZA<br>
-                <span>CHOROZINHO</span>
+                EVANGELIZA CHOROZINHO
             </div>
 
-            <a href="index.html" class="btn btn-header">
+            <a
+                href="index.html"
+                class="btn btn-outline">
+
                 INÍCIO
+
             </a>
 
         </div>
@@ -32,35 +44,34 @@
 
 
     <!-- CONTEÚDO -->
+
     <main>
 
         <section class="about">
 
             <div class="container">
 
-                <span class="section-label">
-                    FAÇA PARTE
-                </span>
-
                 <h1>
-                    Cadastro de <strong>Participante</strong>
+                    QUERO PARTICIPAR
                 </h1>
 
                 <p>
-                    Preencha seus dados para fazer parte
-                    do Evangeliza Chorozinho.
+                    Faça seu cadastro para participar
+                    do movimento Evangeliza Chorozinho.
                 </p>
 
 
                 <!-- FORMULÁRIO -->
 
-                <form id="formCadastro" class="formulario">
+                <form
+                    id="formCadastro"
+                    class="formulario">
 
 
-                    <!-- DADOS PESSOAIS -->
+                    <!-- NOME -->
 
                     <h2 class="form-titulo">
-                        Dados pessoais
+                        Seus dados
                     </h2>
 
 
@@ -74,11 +85,13 @@
                             type="text"
                             id="nome"
                             name="nome"
-                            placeholder="Digite seu nome completo"
-                            required>
+                            required
+                            placeholder="Digite seu nome completo">
 
                     </div>
 
+
+                    <!-- WHATSAPP -->
 
                     <div class="campo">
 
@@ -90,11 +103,13 @@
                             type="tel"
                             id="whatsapp"
                             name="whatsapp"
-                            placeholder="(85) 99999-9999"
-                            required>
+                            required
+                            placeholder="(85) 99999-9999">
 
                     </div>
 
+
+                    <!-- CIDADE -->
 
                     <div class="campo">
 
@@ -106,11 +121,13 @@
                             type="text"
                             id="cidade"
                             name="cidade"
-                            placeholder="Digite sua cidade"
-                            required>
+                            required
+                            placeholder="Digite sua cidade">
 
                     </div>
 
+
+                    <!-- BAIRRO -->
 
                     <div class="campo">
 
@@ -122,18 +139,13 @@
                             type="text"
                             id="bairro"
                             name="bairro"
-                            placeholder="Digite seu bairro"
-                            required>
+                            required
+                            placeholder="Digite seu bairro">
 
                     </div>
 
 
-                    <!-- DADOS DA IGREJA -->
-
-                    <h2 class="form-titulo">
-                        Dados da igreja
-                    </h2>
-
+                    <!-- DENOMINAÇÃO -->
 
                     <div class="campo">
 
@@ -145,11 +157,13 @@
                             type="text"
                             id="denominacao"
                             name="denominacao"
-                            placeholder="Ex.: Assembleia de Deus"
-                            required>
+                            required
+                            placeholder="Nome da sua denominação">
 
                     </div>
 
+
+                    <!-- IGREJA -->
 
                     <div class="campo">
 
@@ -161,11 +175,13 @@
                             type="text"
                             id="igreja"
                             name="igreja"
-                            placeholder="Digite o nome da sua igreja"
-                            required>
+                            required
+                            placeholder="Nome da sua igreja">
 
                     </div>
 
+
+                    <!-- LÍDER -->
 
                     <div class="campo">
 
@@ -177,11 +193,13 @@
                             type="text"
                             id="lider"
                             name="lider"
-                            placeholder="Nome do pastor ou líder"
-                            required>
+                            required
+                            placeholder="Nome do pastor ou líder">
 
                     </div>
 
+
+                    <!-- CARGO -->
 
                     <div class="campo">
 
@@ -195,7 +213,7 @@
                             required>
 
                             <option value="">
-                                Selecione seu cargo
+                                Selecione uma opção
                             </option>
 
                             <option value="Membro(a)">
@@ -231,17 +249,12 @@
                     </div>
 
 
-                    <!-- ÁREA DE SERVIÇO -->
-
-                    <h2 class="form-titulo">
-                        Área em que deseja servir
-                    </h2>
-
+                    <!-- ÁREA -->
 
                     <div class="campo">
 
                         <label for="area">
-                            Escolha uma área
+                            Área em que deseja servir
                         </label>
 
                         <select
@@ -343,9 +356,9 @@
     </footer>
 
 
-  <!-- SCRIPT -->
+    <!-- JAVASCRIPT -->
 
-<script src="js/cadastro.js"></script>
+    <script src="js/cadastro.js"></script>
 
 </body>
 
