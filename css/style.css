@@ -399,3 +399,61 @@ footer {
     }
 
 }
+
+/* =====================================================
+   PÁGINA DE CONFIRMAÇÃO
+   ===================================================== */
+
+.confirmacao {
+    max-width: 650px;
+    margin: 45px auto 0;
+    background: #ffffff;
+    padding: 45px;
+    border-radius: 14px;
+    border: 1px solid #e5dfd5;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.confirmacao-icone {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    background: #c9a96e;
+    color: #171512;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.confirmacao h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.confirmacao p {
+    max-width: 500px;
+    margin: 0 auto;
+    color: #625b53;
+}
+
+.confirmacao .btn {
+    margin-top: 30px;
+}
+
+
+@media (max-width: 600px) {
+
+    .confirmacao {
+        padding: 30px 20px;
+    }
+
+    .confirmacao h2 {
+        font-size: 24px;
+    }
+
+}
