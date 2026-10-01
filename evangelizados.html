@@ -402,72 +402,139 @@ document
 
 
 // ===============================
-// ENVIO
+// ENVIO PARA A PLANILHA + WHATSAPP
 // ===============================
 
 form.addEventListener("submit", function(e) {
 
     e.preventDefault();
 
-
     const telefoneOriginal =
         document.getElementById("telefone").value;
 
-
-    // Retira espaços, parênteses e traços
     let telefone =
         telefoneOriginal.replace(/\D/g, "");
 
-
-    // Se o número tiver apenas 11 dígitos,
-    // acrescenta o código do Brasil.
     if (telefone.length === 11) {
-
         telefone = "55" + telefone;
-
     }
 
+    const dados = {
 
-    const nome =
-        document.getElementById("nome").value.trim();
+        nome:
+            document.getElementById("nome").value.trim(),
+
+        telefone:
+            document.getElementById("telefone").value.trim(),
+
+        rua:
+            document.getElementById("rua").value.trim(),
+
+        bairro:
+            document.getElementById("bairro").value.trim(),
+
+        aceitouJesus:
+            document.querySelector(
+                'input[name="aceitouJesus"]:checked'
+            ).value,
+
+        igrejaAceitou:
+            document.getElementById("igrejaAceitou").value.trim(),
+
+        jaFrequentou:
+            document.querySelector(
+                'input[name="jaFrequentou"]:checked'
+            ).value,
+
+        igrejaFrequentou:
+            document.getElementById("igrejaFrequentou").value.trim(),
+
+        aceitaVisita:
+            document.querySelector(
+                'input[name="aceitaVisita"]:checked'
+            ).value,
+
+        evangelizador:
+            document.getElementById("evangelizador").value.trim(),
+
+        igrejaEvangelizador:
+            document.getElementById("igrejaEvangelizador").value.trim()
+    };
 
 
     // ===============================
-    // MENSAGEM DO WHATSAPP
+    // ENDEREÇO DO WEB APP
     // ===============================
 
-    const mensagem =
-        "FICAMOS FELIZES POR PODER ENCONTRAR VOCÊ NO EVANGELIZA CHOROZINHO! ❤️\n\n" +
-        "Uma pessoa de nossa equipe estará entrando em contato com você para lhe conhecer melhor.\n\n" +
-        "Deus abençoe você! 🙏";
-
-
-    const urlWhatsApp =
-        "https://wa.me/" +
-        telefone +
-        "?text=" +
-        encodeURIComponent(mensagem);
+    const urlScript =
+        "https://script.google.com/macros/s/AKfycbw3V-QJ_F5ufYa4uOdHC88cP8afdqeizX7MAhOj8K3WOJqIlEZ719PuP_c8K4YvsFyp/exec";
 
 
     // ===============================
-    // MOSTRA CONFIRMAÇÃO
+    // ENVIA PARA A PLANILHA
     // ===============================
 
-    document.getElementById("mensagem").style.display = "block";
+    fetch(urlScript, {
+
+        method: "POST",
+
+        mode: "no-cors",
+
+        headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+        },
+
+        body: JSON.stringify(dados)
+
+    })
+    .then(function() {
+
+        // ===============================
+        // MOSTRA CONFIRMAÇÃO
+        // ===============================
+
+        document.getElementById("mensagem").style.display = "block";
 
 
-    // ===============================
-    // ABRE WHATSAPP
-    // ===============================
+        // ===============================
+        // MENSAGEM DO WHATSAPP
+        // ===============================
 
-    setTimeout(function() {
+        const mensagem =
+            "FICAMOS FELIZES POR PODER ENCONTRAR VOCÊ NO EVANGELIZA CHOROZINHO! ❤️\n\n" +
+            "Uma pessoa de nossa equipe estará entrando em contato com você para lhe conhecer melhor.\n\n" +
+            "Deus abençoe você! 🙏";
 
-        window.location.href = urlWhatsApp;
 
-    }, 800);
+        const urlWhatsApp =
+            "https://wa.me/" +
+            telefone +
+            "?text=" +
+            encodeURIComponent(mensagem);
+
+
+        // ===============================
+        // ABRE O WHATSAPP
+        // ===============================
+
+        setTimeout(function() {
+
+            window.location.href = urlWhatsApp;
+
+        }, 800);
+
+    })
+    .catch(function(erro) {
+
+        alert(
+            "Não foi possível registrar a pessoa. Tente novamente."
+        );
+
+        console.error(erro);
+
+    });
 
 });
-
 </script>
 
 </body>
