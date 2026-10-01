@@ -1,5 +1,5 @@
 const URL_GOOGLE_SHEETS =
-    "https://script.google.com/macros/s/AKfycbzV3vpTYEABFh231Pu3SK0xcDJyza8e-XAc9lpj4zPamRZvkE0thR2nUHFhBOVGamgu/exec";
+    "https://script.google.com/macros/s/AKfycbwbzpDumqVUYDhxfUkgWziJuKUX09eNvLsVEYO2Izq-409qAeThz6hpd_GsQJWQrpq1/exec";
 
 
 document
