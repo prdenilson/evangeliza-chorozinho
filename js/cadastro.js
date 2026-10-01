@@ -74,19 +74,20 @@ document
         try {
 
             const resposta = await fetch(
-                URL_GOOGLE_SHEETS,
-                {
-                    method: "POST",
+    URL_GOOGLE_SHEETS,
+    {
+        method: "POST",
 
-                    headers: {
-                        "Content-Type":
-                            "text/plain;charset=utf-8"
-                    },
+        mode: "no-cors",
 
-                    body: JSON.stringify(participante)
-                }
-            );
+        headers: {
+            "Content-Type":
+                "text/plain;charset=utf-8"
+        },
 
+        body: JSON.stringify(participante)
+    }
+);
 
             if (!resposta.ok) {
                 throw new Error(
