@@ -1,6 +1,5 @@
 const URL_GOOGLE_SHEETS =
-    "https://script.google.com/macros/s/AKfycbwbzpDumqVUYDhxfUkgWziJuKUX09eNvLsVEYO2Izq-409qAeThz6hpd_GsQJWQrpq1/exec";
-
+    "https://script.google.com/macros/s/AKfycbz9qE7IGgxpPYHMmHy023xSklr9ZL0_I2CNP0N8A07zxA8DnAG1SBh_TQOCAhmUmHul_g/exec";
 
 document
     .getElementById("formCadastro")
