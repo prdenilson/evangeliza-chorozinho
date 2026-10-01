@@ -73,56 +73,31 @@ document
 
         try {
 
-            const resposta = await fetch(
-    URL_GOOGLE_SHEETS,
-    {
-        method: "POST",
+            await fetch(
+                URL_GOOGLE_SHEETS,
+                {
+                    method: "POST",
 
-        mode: "no-cors",
+                    mode: "no-cors",
 
-        headers: {
-            "Content-Type":
-                "text/plain;charset=utf-8"
-        },
+                    headers: {
+                        "Content-Type":
+                            "text/plain;charset=utf-8"
+                    },
 
-        body: JSON.stringify(participante)
-    }
-);
-
-            if (!resposta.ok) {
-                throw new Error(
-                    "O servidor não respondeu corretamente."
-                );
-            }
-
-
-            const resultado =
-                await resposta.json();
-
-
-            console.log(
-                "Resposta do Google:",
-                resultado
+                    body: JSON.stringify(participante)
+                }
             );
 
 
-            if (resultado.sucesso === true) {
+            localStorage.setItem(
+                "participante",
+                JSON.stringify(participante)
+            );
 
-                localStorage.setItem(
-                    "participante",
-                    JSON.stringify(participante)
-                );
 
-                window.location.href =
-                    "sucesso.html";
-
-            } else {
-
-                throw new Error(
-                    "O Google Sheets não confirmou o cadastro."
-                );
-
-            }
+            window.location.href =
+                "sucesso.html";
 
 
         } catch (erro) {
@@ -135,7 +110,7 @@ document
 
             alert(
                 "Não foi possível concluir o cadastro.\n\n" +
-                "Verifique sua conexão e tente novamente."
+                "Tente novamente."
             );
 
 
