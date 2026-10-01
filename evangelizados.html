@@ -189,33 +189,42 @@
                 name="bairro"
             >
 
-            <!-- ACEITOU JESUS -->
+          <!-- DECISÃO ESPIRITUAL -->
 
-            <label>
-                Aceitou Jesus?
-            </label>
+<label>
+    Qual foi a decisão da pessoa?
+</label>
 
-            <div class="opcoes">
+<div class="opcoes" style="flex-direction: column; gap: 12px;">
 
-                <label>
-                    <input
-                        type="radio"
-                        name="aceitouJesus"
-                        value="Sim"
-                        required
-                    >
-                    Sim
-                </label>
+    <label>
+        <input
+            type="checkbox"
+            name="decisao"
+            value="Aceitou Jesus"
+        >
+        Aceitou Jesus
+    </label>
 
-                <label>
-                    <input
-                        type="radio"
-                        name="aceitouJesus"
-                        value="Não"
-                    >
-                    Não
-                </label>
+    <label>
+        <input
+            type="checkbox"
+            name="decisao"
+            value="Reconciliou-se com Jesus"
+        >
+        Reconciliou-se com Jesus
+    </label>
 
+    <label>
+        <input
+            type="checkbox"
+            name="decisao"
+            value="Quer receber orações"
+        >
+        Quer receber orações
+    </label>
+
+</div>
             </div>
 
             <!-- IGREJA APÓS ACEITAR JESUS -->
@@ -344,16 +353,21 @@ const campoIgrejaFrequentou =
 
 
 // ===============================
-// ACEITOU JESUS
+// DECISÃO ESPIRITUAL
 // ===============================
 
 document
-    .querySelectorAll('input[name="aceitouJesus"]')
-    .forEach(radio => {
+    .querySelectorAll('input[name="decisao"]')
+    .forEach(check => {
 
-        radio.addEventListener("change", function() {
+        check.addEventListener("change", function() {
 
-            if (this.value === "Sim") {
+            const aceitou =
+                document.querySelector(
+                    'input[name="decisao"][value="Aceitou Jesus"]'
+                ).checked;
+
+            if (aceitou) {
 
                 campoIgrejaAceitou.style.display = "block";
 
@@ -370,7 +384,6 @@ document
         });
 
     });
-
 
 // ===============================
 // JÁ FREQUENTOU IGREJA
@@ -433,10 +446,14 @@ form.addEventListener("submit", function(e) {
         bairro:
             document.getElementById("bairro").value.trim(),
 
-        aceitouJesus:
-            document.querySelector(
-                'input[name="aceitouJesus"]:checked'
-            ).value,
+        decisao:
+    Array.from(
+        document.querySelectorAll(
+            'input[name="decisao"]:checked'
+        )
+    )
+    .map(input => input.value)
+    .join(", "),
 
         igrejaAceitou:
             document.getElementById("igrejaAceitou").value.trim(),
