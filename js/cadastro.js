@@ -1,5 +1,5 @@
 const URL_GOOGLE_SHEETS =
-    "https://script.google.com/macros/s/AKfycbxaMBegcyJw7cyiyctCcU9T_zRK1gFpeq2yWSQ4NUQkmllkkwVQr4zrxEZaSibc1lUa/exec";
+    "https://script.google.com/macros/s/AKfycbzV3vpTYEABFh231Pu3SK0xcDJyza8e-XAc9lpj4zPamRZvkE0thR2nUHFhBOVGamgu/exec";
 
 
 document
@@ -18,6 +18,8 @@ document
 
 
         const participante = {
+
+            numero: "",
 
             nome: document
                 .getElementById("nome")
@@ -94,7 +96,7 @@ document
 
 
             const resultado =
-                await resposta.text();
+                await resposta.json();
 
 
             console.log(
@@ -103,15 +105,12 @@ document
             );
 
 
-            if (
-                resultado.includes("OK:")
-            ) {
+            if (resultado.sucesso === true) {
 
                 localStorage.setItem(
                     "participante",
                     JSON.stringify(participante)
                 );
-
 
                 window.location.href =
                     "sucesso.html";
@@ -119,8 +118,7 @@ document
             } else {
 
                 throw new Error(
-                    resultado ||
-                    "O cadastro não foi confirmado."
+                    "O Google Sheets não confirmou o cadastro."
                 );
 
             }
@@ -136,8 +134,7 @@ document
 
             alert(
                 "Não foi possível concluir o cadastro.\n\n" +
-                "O sistema não confirmou a gravação dos seus dados. " +
-                "Tente novamente."
+                "Verifique sua conexão e tente novamente."
             );
 
 
