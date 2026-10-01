@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Evangelizados | Evangeliza Chorozinho</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f1e8;
+            color: #333;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .formulario {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.10);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .descricao {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        .opcoes {
+            display: flex;
+            gap: 25px;
+            margin-top: 8px;
+        }
+
+        .opcoes label {
+            margin: 0;
+            font-weight: normal;
+        }
+
+        .opcoes input {
+            margin-right: 5px;
+        }
+
+        .campo-condicional {
+            display: none;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 30px;
+            padding: 15px;
+            border: none;
+            border-radius: 7px;
+            background: #2d5a3d;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #23482f;
+        }
+
+        .mensagem {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            text-align: center;
+            border-radius: 7px;
+            background: #e7f4e9;
+            color: #245c30;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="formulario">
+
+        <h1>Pessoa Evangelizada</h1>
+
+        <p class="descricao">
+            Registre aqui a pessoa alcançada durante o Evangeliza Chorozinho.
+        </p>
+
+        <form id="formEvangelizado">
+
+            <!-- EVANGELIZADOR -->
+
+            <label for="evangelizador">
+                Nome do evangelizador
+            </label>
+
+            <input
+                type="text"
+                id="evangelizador"
+                name="evangelizador"
+                required
+            >
+
+            <label for="igrejaEvangelizador">
+                Igreja do evangelizador
+            </label>
+
+            <input
+                type="text"
+                id="igrejaEvangelizador"
+                name="igrejaEvangelizador"
+                required
+            >
+
+            <!-- PESSOA EVANGELIZADA -->
+
+            <label for="nome">
+                Nome da pessoa
+            </label>
+
+            <input
+                type="text"
+                id="nome"
+                name="nome"
+                required
+            >
+
+            <label for="telefone">
+                Telefone / WhatsApp
+            </label>
+
+            <input
+                type="tel"
+                id="telefone"
+                name="telefone"
+                placeholder="(85) 99999-9999"
+                required
+            >
+
+            <label for="rua">
+                Rua
+            </label>
+
+            <input
+                type="text"
+                id="rua"
+                name="rua"
+            >
+
+            <label for="bairro">
+                Bairro
+            </label>
+
+            <input
+                type="text"
+                id="bairro"
+                name="bairro"
+            >
+
+            <!-- ACEITOU JESUS -->
+
+            <label>
+                Aceitou Jesus?
+            </label>
+
+            <div class="opcoes">
+
+                <label>
+                    <input
+                        type="radio"
+                        name="aceitouJesus"
+                        value="Sim"
+                        required
+                    >
+                    Sim
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="aceitouJesus"
+                        value="Não"
+                    >
+                    Não
+                </label>
+
+            </div>
+
+            <!-- IGREJA APÓS ACEITAR JESUS -->
+
+            <div
+                class="campo-condicional"
+                id="campoIgrejaAceitou"
+            >
+
+                <label for="igrejaAceitou">
+                    Qual igreja deseja frequentar?
+                </label>
+
+                <input
+                    type="text"
+                    id="igrejaAceitou"
+                    name="igrejaAceitou"
+                >
+
+            </div>
+
+            <!-- JÁ FREQUENTOU IGREJA -->
+
+            <label>
+                Já frequentou uma igreja evangélica?
+            </label>
+
+            <div class="opcoes">
+
+                <label>
+                    <input
+                        type="radio"
+                        name="jaFrequentou"
+                        value="Sim"
+                        required
+                    >
+                    Sim
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="jaFrequentou"
+                        value="Não"
+                    >
+                    Não
+                </label>
+
+            </div>
+
+            <!-- QUAL IGREJA -->
+
+            <div
+                class="campo-condicional"
+                id="campoIgrejaFrequentou"
+            >
+
+                <label for="igrejaFrequentou">
+                    Qual igreja frequentou?
+                </label>
+
+                <input
+                    type="text"
+                    id="igrejaFrequentou"
+                    name="igrejaFrequentou"
+                >
+
+            </div>
+
+            <!-- VISITA -->
+
+            <label>
+                Aceita receber uma visita em sua casa?
+            </label>
+
+            <div class="opcoes">
+
+                <label>
+                    <input
+                        type="radio"
+                        name="aceitaVisita"
+                        value="Sim"
+                        required
+                    >
+                    Sim
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="aceitaVisita"
+                        value="Não"
+                    >
+                    Não
+                </label>
+
+            </div>
+
+            <button type="submit">
+                REGISTRAR PESSOA
+            </button>
+
+        </form>
+
+        <div
+            class="mensagem"
+            id="mensagem"
+        >
+            Cadastro realizado com sucesso!
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const form = document.getElementById("formEvangelizado");
+
+const campoIgrejaAceitou =
+    document.getElementById("campoIgrejaAceitou");
+
+const campoIgrejaFrequentou =
+    document.getElementById("campoIgrejaFrequentou");
+
+
+// ===============================
+// ACEITOU JESUS
+// ===============================
+
+document
+    .querySelectorAll('input[name="aceitouJesus"]')
+    .forEach(radio => {
+
+        radio.addEventListener("change", function() {
+
+            if (this.value === "Sim") {
+
+                campoIgrejaAceitou.style.display = "block";
+
+            } else {
+
+                campoIgrejaAceitou.style.display = "none";
+
+                document.getElementById(
+                    "igrejaAceitou"
+                ).value = "";
+
+            }
+
+        });
+
+    });
+
+
+// ===============================
+// JÁ FREQUENTOU IGREJA
+// ===============================
+
+document
+    .querySelectorAll('input[name="jaFrequentou"]')
+    .forEach(radio => {
+
+        radio.addEventListener("change", function() {
+
+            if (this.value === "Sim") {
+
+                campoIgrejaFrequentou.style.display = "block";
+
+            } else {
+
+                campoIgrejaFrequentou.style.display = "none";
+
+                document.getElementById(
+                    "igrejaFrequentou"
+                ).value = "";
+
+            }
+
+        });
+
+    });
+
+
+// ===============================
+// ENVIO
+// ===============================
+
+form.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+
+    const telefoneOriginal =
+        document.getElementById("telefone").value;
+
+
+    // Retira espaços, parênteses e traços
+    let telefone =
+        telefoneOriginal.replace(/\D/g, "");
+
+
+    // Se o número tiver apenas 11 dígitos,
+    // acrescenta o código do Brasil.
+    if (telefone.length === 11) {
+
+        telefone = "55" + telefone;
+
+    }
+
+
+    const nome =
+        document.getElementById("nome").value.trim();
+
+
+    // ===============================
+    // MENSAGEM DO WHATSAPP
+    // ===============================
+
+    const mensagem =
+        "FICAMOS FELIZES POR PODER ENCONTRAR VOCÊ NO EVANGELIZA CHOROZINHO! ❤️\n\n" +
+        "Uma pessoa de nossa equipe estará entrando em contato com você para lhe conhecer melhor.\n\n" +
+        "Deus abençoe você! 🙏";
+
+
+    const urlWhatsApp =
+        "https://wa.me/" +
+        telefone +
+        "?text=" +
+        encodeURIComponent(mensagem);
+
+
+    // ===============================
+    // MOSTRA CONFIRMAÇÃO
+    // ===============================
+
+    document.getElementById("mensagem").style.display = "block";
+
+
+    // ===============================
+    // ABRE WHATSAPP
+    // ===============================
+
+    setTimeout(function() {
+
+        window.location.href = urlWhatsApp;
+
+    }, 800);
+
+});
+
+</script>
+
+</body>
+</html>
