@@ -18,7 +18,6 @@ document
 
         const participante = {
             numero: "",
-
             nome: document.getElementById("nome").value.trim(),
             whatsapp: document.getElementById("whatsapp").value.trim(),
             cidade: document.getElementById("cidade").value.trim(),
