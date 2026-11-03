@@ -92,3 +92,131 @@ footer{background:#11100e;color:#d8d0c5;text-align:center;padding:38px 0}
 @media(max-width:800px){.hero-content,.mobilizacao-grid,.prep-box{grid-template-columns:1fr}.areas{grid-template-columns:repeat(2,1fr)}.header-content{gap:12px}.event-card{max-width:560px}.prep-box{gap:25px}}
 @media(max-width:600px){.container{width:min(100% - 32px,1100px)}.header{padding:14px 0}.logo{font-size:17px}.logo span{font-size:11px}.btn-header{padding:10px 12px;font-size:11px}.hero{padding:60px 0}.hero h1{font-size:42px}.hero-text>p{font-size:16px}.section-pad{padding:58px 0}.areas{grid-template-columns:1fr}.formulario{padding:27px 19px}.form-grid{grid-template-columns:1fr}.campo-full{grid-column:auto}.prep-box{padding:25px 20px}.evangelizados-content{align-items:flex-start;flex-direction:column}.about h2,.participate h2,.mobilizacao h2,.registration h2{font-size:32px}.confirmacao{padding:30px 20px}.confirmacao h2{font-size:24px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* =================================
+   CABEÇALHO INSTITUCIONAL COPAC
+================================= */
+
+.copac-header {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #e7e4de;
+    border-top: 4px solid #c9a96e;
+    padding: 17px 0;
+}
+
+.copac-container {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.copac-brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.copac-logo {
+    width: 88px;
+    height: 88px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.copac-info {
+    border-left: 2px solid #c9a96e;
+    padding-left: 18px;
+}
+
+.copac-label {
+    display: block;
+    color: #a17b36;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 2px;
+}
+
+.copac-info h2 {
+    color: #123451;
+    font-size: 27px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    line-height: 1.1;
+}
+
+.copac-info h3 {
+    color: #183b57;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+.copac-info p {
+    color: #716b62;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.copac-seal {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #183b57;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.copac-dot {
+    color: #c9a96e;
+    font-size: 18px;
+}
+
+/* AJUSTES PARA CELULARES */
+
+@media (max-width: 600px) {
+    .copac-header {
+        padding: 14px 0;
+    }
+
+    .copac-container {
+        width: 92%;
+    }
+
+    .copac-brand {
+        gap: 12px;
+    }
+
+    .copac-logo {
+        width: 68px;
+        height: 68px;
+    }
+
+    .copac-info {
+        padding-left: 12px;
+    }
+
+    .copac-info h2 {
+        font-size: 23px;
+    }
+
+    .copac-info h3 {
+        font-size: 9px;
+        letter-spacing: .4px;
+    }
+
+    .copac-info p {
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    .copac-seal {
+        display: none;
+    }
+}
+
