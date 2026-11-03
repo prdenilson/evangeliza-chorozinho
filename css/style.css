@@ -121,9 +121,10 @@ footer{background:#11100e;color:#d8d0c5;text-align:center;padding:38px 0}
 }
 
 .copac-logo {
-    width: 125px;
-    height: 125px;
-    object-fit: contain;
+    width: 165px;
+    height: 145px;
+    object-fit: cover;
+    object-position: center;
     border-radius: 8px;
     flex-shrink: 0;
 }
@@ -194,9 +195,11 @@ footer{background:#11100e;color:#d8d0c5;text-align:center;padding:38px 0}
     }
 
   .copac-logo {
-    width: 90px;
-    height: 90px;
-   }
+    width: 120px;
+    height: 110px;
+    object-fit: cover;
+    object-position: center;
+}
    
     .copac-info {
         padding-left: 12px;
